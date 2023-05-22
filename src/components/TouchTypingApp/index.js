@@ -15,7 +15,6 @@ class TouchTypingApp extends Component {
     endTime: null,
     wordsPerMinute: 0,
     counter: 60,
-    isLoading: false,
   }
 
   componentDidMount() {
@@ -49,7 +48,7 @@ class TouchTypingApp extends Component {
     const targetText = randomText.repeat(20)
     console.log(targetText)
 
-    this.setState({targetKeys: targetText, isLoading: true})
+    this.setState({targetKeys: targetText})
   }
 
   calculateWPM = () => {
@@ -128,16 +127,15 @@ class TouchTypingApp extends Component {
       targetKeys,
       keyCount,
       accuracy,
-      isLoading,
       wordsPerMinute,
       counter,
     } = this.state
 
     return (
-      <div className="Typing-container">
-        <h1>Touch Typing Practice</h1>
-        {isLoading ? (
-          <>
+      <>
+        <div className="large-screen">
+          <div className="Typing-container">
+            <h1>Touch Typing Practice</h1>
             <p className="counter">
               Time Remaining:
               <span className="span"> {counter} </span>Seconds
@@ -161,9 +159,18 @@ class TouchTypingApp extends Component {
                 Words per Minute: {wordsPerMinute.toFixed(0)}
               </p>
             </div>
-          </>
-        ) : null}
-      </div>
+          </div>
+        </div>
+        <div className="small-screen">
+          <img
+            src="https://res.cloudinary.com/deubpbymb/image/upload/v1684767970/vecteezy_workplace-workstation-office-lamp-computer-flat-color-icon_14609976_mh5zjl.jpg"
+            className="small-screen-image"
+            alt="logo"
+          />
+          <h1 className="alert">Log in with a Laptop or pc </h1>
+          <p className="">Not Made for mobile screen </p>
+        </div>
+      </>
     )
   }
 }

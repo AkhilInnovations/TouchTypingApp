@@ -3,6 +3,34 @@
   margin: 0px;
 }
 
+.small-screen {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .large-screen {
+    display: none;
+  }
+  .small-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+    align-items: center;
+    padding-top: 40px;
+  }
+  .small-screen-image {
+    width: 250px;
+    height: 260px;
+  }
+  .alert {
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+}
+
 .home-container {
   height: 100vh;
   display: flex;
